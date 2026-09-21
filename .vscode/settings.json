@@ -1,0 +1,7 @@
+{
+  "editor.formatOnSave": true,
+  "prettier.documentSelectors": ["**/*.php"],
+  "[php]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

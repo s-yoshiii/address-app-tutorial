@@ -19,6 +19,8 @@ notes/
 
 # OS・エディタが生成するファイル
 .DS_Store
-.vscode/
+# .vscode は保存時整形の設定だけ共有する
+.vscode/*
+!.vscode/settings.json
 .idea/
 *.swp
