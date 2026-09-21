@@ -12,6 +12,10 @@ notes/
 
 # 依存パッケージ
 /vendor/
+/node_modules/
+
+# PHP CS Fixer のキャッシュ
+.php-cs-fixer.cache
 
 # OS・エディタが生成するファイル
 .DS_Store
