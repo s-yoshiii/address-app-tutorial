@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
@@ -11,6 +11,22 @@
     <section>
       <h2>連絡先一覧</h2>
       <ul id="contact-list"></ul>
+    </section>
+    <!-- 連絡先登録フォーム -->
+    <section>
+      <h2>連絡先を登録する</h2>
+      <form id="contact-form">
+        <div>
+          <label>名前（必須）：<input type="text" id="name" required /></label>
+        </div>
+        <div>
+          <label>メール：<input type="email" id="email" /></label>
+        </div>
+        <div>
+          <label>電話番号：<input type="tel" id="phone" /></label>
+        </div>
+        <button type="submit">登録する</button>
+      </form>
     </section>
 
     <script src="app.js"></script>

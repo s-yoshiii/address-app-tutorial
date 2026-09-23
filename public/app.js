@@ -14,3 +14,27 @@ async function loadContacts() {
 }
 
 loadContacts();
+
+document
+  .getElementById("contact-form")
+  .addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const response = await fetch("/api/contacts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, phone }),
+    });
+
+    if (!response.ok) {
+      const error = await response.json();
+      console.error("登録に失敗しました", response.status, error);
+      alert(`登録に失敗しました（${response.status}）`);
+      return;
+    }
+
+    document.getElementById("contact-form").reset();
+    loadContacts();
+  });
