@@ -10,6 +10,17 @@ async function loadContacts() {
     const { name, email, phone } = contact;
     li.textContent = `${name} | ${email ?? "-"} | ${phone ?? "-"}`;
     list.appendChild(li);
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "削除";
+    deleteButton.addEventListener("click", async () => {
+      if (!confirm("削除しますか？")) return;
+      await fetch(`/api/contacts/${contact.id}`, { method: "DELETE" });
+      loadContacts();
+    });
+
+    li.appendChild(deleteButton);
+    list.appendChild(li);
   });
 }
 
