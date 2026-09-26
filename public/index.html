@@ -28,6 +28,26 @@
         <button type="submit">登録する</button>
       </form>
     </section>
+    <!-- 連絡先編集フォーム（初期状態では非表示） -->
+    <section id="edit-section" style="display: none">
+      <h2>連絡先を編集する</h2>
+      <form id="edit-form">
+        <input type="hidden" id="edit-id" />
+        <div>
+          <label
+            >名前（必須）：<input type="text" id="edit-name" required
+          /></label>
+        </div>
+        <div>
+          <label>メール：<input type="email" id="edit-email" /></label>
+        </div>
+        <div>
+          <label>電話番号：<input type="tel" id="edit-phone" /></label>
+        </div>
+        <button type="submit">更新する</button>
+        <button type="button" id="cancel-edit">キャンセル</button>
+      </form>
+    </section>
 
     <script src="app.js"></script>
   </body>
