@@ -37,6 +37,11 @@ if ($method === "GET" && $id !== null) {
 
 if ($method === "POST" && $id === null) {
     $input = json_decode(file_get_contents("php://input"), true);
+    if (empty($input["name"])) {
+        http_response_code(400);
+        echo json_encode(["error" => "name is required"]);
+        exit();
+    }
     if (!is_array($input)) {
         http_response_code(400);
         echo json_encode(["error" => "Invalid JSON body"], JSON_UNESCAPED_UNICODE);
@@ -63,6 +68,11 @@ if ($method === "POST" && $id === null) {
 
 if ($method === "PUT" && $id !== null) {
     $input = json_decode(file_get_contents("php://input"), true);
+    if (empty($input["name"])) {
+        http_response_code(400);
+        echo json_encode(["error" => "name is required"]);
+        exit();
+    }
     $stmt = $pdo->prepare("UPDATE contacts SET name = ?, email = ?, phone = ? WHERE id = ?");
     $stmt->execute([$input["name"], $input["email"] ?? null, $input["phone"] ?? null, $id]);
     echo json_encode(["message" => "updated"], JSON_UNESCAPED_UNICODE);
