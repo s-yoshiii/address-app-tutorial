@@ -1,8 +1,8 @@
 <?php
 header("Content-Type: application/json");
 
-$pdo = new PDO("sqlite:" . __DIR__ . "/../contacts.db");
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+require_once __DIR__ . "/db.php";
+$pdo = get_pdo();
 
 $method = $_SERVER["REQUEST_METHOD"];
 $uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
